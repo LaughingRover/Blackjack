@@ -1,17 +1,25 @@
 package com.company;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Vector;
 
 public class Deck {
-    private Vector<Card> cardDeck = new Vector<Card>();
-    private Vector<Card> shuffledDeck = new Vector<Card>();
 
-    public Vector<Card> shuffleDeck() {
-        return shuffledDeck;
+    private final Vector<Card> cardDeck = new Vector<>();
+    private Vector<Card> shuffledDeck = new Vector<>();
+
+
+    public Vector<Card> getCardDeck() {
+        return cardDeck;
     }
 
-    public Vector<Card> showShuffledDeck() {
+    public void shuffleDeck() {
+        shuffledDeck.addAll(cardDeck);
+        Collections.shuffle(shuffledDeck);
+    }
+
+    public Vector<Card> getShuffledDeck() {
         return shuffledDeck;
     }
 
@@ -20,70 +28,89 @@ public class Deck {
     }
 
     public void createHearts() {
-        final Vector<String> hearts = new Vector<String>();
-        hearts.add("2H");
-        hearts.add("3H");
-        hearts.add("4H");
-        hearts.add("5H");
-        hearts.add("6H");
-        hearts.add("7H");
-        hearts.add("8H");
-        hearts.add("9H");
-        hearts.add("10H");
-        hearts.add("JH");
-        hearts.add("QH");
-        hearts.add("KH");
-        hearts.add("AH");
+        final Vector<Card> hearts = new Vector<Card>(List.of(
+                new Card("2", 2, "Hearts"),
+                new Card("3", 3, "Hearts"),
+                new Card("4", 4, "Hearts"),
+                new Card("5", 5, "Hearts"),
+                new Card("6", 6, "Hearts"),
+                new Card("7", 7, "Hearts"),
+                new Card("8", 8, "Hearts"),
+                new Card("9", 9, "Hearts"),
+                new Card("10", 10, "Hearts"),
+                new Card("Jack", 10, "Hearts"),
+                new Card("Queen", 10, "Hearts"),
+                new Card("King", 10, "Hearts"),
+                new Card("Ace", 11, "Hearts")
+        ));
+
+        cardDeck.addAll(hearts);
     }
 
     public void createSpades() {
-        final Vector<String> spades = new Vector<String>();
-        spades.add("2S");
-        spades.add("3S");
-        spades.add("4S");
-        spades.add("5S");
-        spades.add("6S");
-        spades.add("7S");
-        spades.add("8S");
-        spades.add("9S");
-        spades.add("10S");
-        spades.add("JS");
-        spades.add("QS");
-        spades.add("KS");
-        spades.add("AS");
+        final Vector<Card> spades = new Vector<Card>(List.of(
+                new Card("2", 2, "Spades"),
+                new Card("3", 3, "Spades"),
+                new Card("4", 4, "Spades"),
+                new Card("5", 5, "Spades"),
+                new Card("6", 6, "Spades"),
+                new Card("7", 7, "Spades"),
+                new Card("8", 8, "Spades"),
+                new Card("9", 9, "Spades"),
+                new Card("10", 10, "Spades"),
+                new Card("Jack", 10, "Spades"),
+                new Card("Queen", 10, "Spades"),
+                new Card("King", 10, "Spades"),
+                new Card("Ace", 11, "Spades")
+        ));
+
+        cardDeck.addAll(spades);
     }
 
     public void createClubs() {
-        final Vector<String> clubs = new Vector<String>();
-        clubs.add("2C");
-        clubs.add("3C");
-        clubs.add("4C");
-        clubs.add("5C");
-        clubs.add("6C");
-        clubs.add("7C");
-        clubs.add("8C");
-        clubs.add("9C");
-        clubs.add("10C");
-        clubs.add("JC");
-        clubs.add("QC");
-        clubs.add("KC");
-        clubs.add("AC");
+        final Vector<Card> clubs = new Vector<Card>(List.of(
+                new Card("2", 2, "Clubs"),
+                new Card("3", 3, "Clubs"),
+                new Card("4", 4, "Clubs"),
+                new Card("5", 5, "Clubs"),
+                new Card("6", 6, "Clubs"),
+                new Card("7", 7, "Clubs"),
+                new Card("8", 8, "Clubs"),
+                new Card("9", 9, "Clubs"),
+                new Card("10", 10, "Clubs"),
+                new Card("Jack", 10, "Clubs"),
+                new Card("Queen", 10, "Clubs"),
+                new Card("King", 10, "Clubs"),
+                new Card("Ace", 11, "Clubs")
+        ));
+
+        cardDeck.addAll(clubs);
     }
 
     public void createDiamonds() {
-        final Vector<String> diamonds = new Vector<String>();
-        diamonds.add("2D");
-        diamonds.add("3D");
-        diamonds.add("4D");
-        diamonds.add("5D");
-        diamonds.add("6D");
-        diamonds.add("7D");
-        diamonds.add("8D");
-        diamonds.add("9D");
-        diamonds.add("10D");
-        diamonds.add("JD");
-        diamonds.add("QD");
-        diamonds.add("KD");
-        diamonds.add("AD");
+        final Vector<Card> diamonds = new Vector<Card>(List.of(
+                new Card("2", 2, "Diamonds"),
+                new Card("3", 3, "Diamonds"),
+                new Card("4", 4, "Diamonds"),
+                new Card("5", 5, "Diamonds"),
+                new Card("6", 6, "Diamonds"),
+                new Card("7", 7, "Diamonds"),
+                new Card("8", 8, "Diamonds"),
+                new Card("9", 9, "Diamonds"),
+                new Card("10", 10, "Diamonds"),
+                new Card("Jack", 10, "Diamonds"),
+                new Card("Queen", 10, "Diamonds"),
+                new Card("King", 10, "Diamonds"),
+                new Card("Ace", 11, "Diamonds")
+        ));
+
+        cardDeck.addAll(diamonds);
+    }
+
+    public void completeDeck() {
+        createHearts();
+        createSpades();
+        createClubs();
+        createDiamonds();
     }
 }

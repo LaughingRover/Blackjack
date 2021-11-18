@@ -5,6 +5,17 @@ public class Card {
     private int value;
     private String suite;
 
+    @Override
+    public String toString() {
+        return name + " of " + suite;
+    }
+
+    public Card(String name, int value, String suite) {
+        this.name = name;
+        this.value = value;
+        this.suite = suite;
+    }
+
     public String getName() {
         return name;
     }
@@ -28,4 +39,6 @@ public class Card {
     public void setSuite(String suite) {
         this.suite = suite;
     }
+
+
 }
