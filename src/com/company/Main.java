@@ -16,6 +16,12 @@ public class Main {
         game.gameSetUp();
         System.out.println(game);
 
+        /**
+         * Todo: Separate the game logic into functions
+         * Write logic for when all players stick
+         * Debug and handle exception
+         */
+
         while (game.getSession()) {
             int numberOfPlayers = game.getPlayers().size();
             if (numberOfPlayers == 1) {
