@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DeckTest {
+class BlackJackTesting {
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
@@ -44,5 +44,16 @@ class DeckTest {
         boolean actual = !(deck.getShuffledDeck().equals(deck.getCardDeck()));
 
         assertTrue(actual);
+    }
+
+    @Test
+    void assertThatGetNextCardReturnsNextCardOnTheDeck() {
+        Deck deck = new Deck();
+        deck.completeDeck();
+        deck.shuffleDeck();
+        int expected = deck.getShuffledDeck().get(0).getValue();
+        deck.getNextCard();
+        int actual = deck.getShuffledDeck().get(0).getValue();
+        assertNotEquals(expected, actual);
     }
 }

@@ -8,8 +8,9 @@ public class Main {
 	    Deck deck = new Deck();
         deck.completeDeck();
         deck.shuffleDeck();
-
         System.out.println(deck.getCardDeck());
-        System.out.println(deck.getShuffledDeck());
+        System.out.println(deck.getNextCard());
+        System.out.println(deck.getCardDeck());
+//        System.out.println(deck.getShuffledDeck());
     }
 }
