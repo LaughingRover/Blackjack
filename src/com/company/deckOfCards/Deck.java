@@ -5,54 +5,85 @@ import java.util.*;
 public class Deck {
 
     private final Vector<Card> cardDeck = new Vector<>();
-        private final Vector<Card> shuffledDeck = new Vector<>();
+    private final Vector<Card> shuffledDeck = new Vector<>();
 
-        public Vector<Card> getCardDeck() {
-            return cardDeck;
-        }
+    /**
+     * @return a newly created card deck
+     */
+    public Vector<Card> getCardDeck() {
+        return cardDeck;
+    }
 
-        public void shuffleDeck() {
-            shuffledDeck.addAll(cardDeck);
-            Collections.shuffle(shuffledDeck);
-        }
+    /**
+     * shuffles the cardDeck and stores the sequence in a new deck called the shuffledDeck
+     */
+    public void shuffleDeck() {
+        shuffledDeck.addAll(cardDeck);
+        Collections.shuffle(shuffledDeck);
+    }
 
-        public Vector<Card> getShuffledDeck() {
-            return shuffledDeck;
-        }
+    /**
+     * @return a shuffled deck of cards
+     */
+    public Vector<Card> getShuffledDeck() {
+        return shuffledDeck;
+    }
 
-        public Card getNextCard() {
-            Card nextCard = shuffledDeck.get(0);
-            shuffledDeck.remove(0);
-            return nextCard;
-        }
+    /**
+     * @return the next card at the top of the array
+     */
+    public Card getNextCard() {
+        Card nextCard = shuffledDeck.get(0);
+        shuffledDeck.remove(0);
+        return nextCard;
+    }
 
-        public int getDeckSize() {
-            return shuffledDeck.size();
-        }
+    /**
+     * Deck should decrease in size after a card is dealt
+     * @return the size of the shuffled deck
+     */
+    public int getDeckSize() {
+        return shuffledDeck.size();
+    }
 
-        public void createHearts() {
+    /**
+     * Creates a heart suite
+     */
+    public void createHearts() {
             Suite hearts = new HeartsSuite("Hearts", "♥");
             cardDeck.addAll(hearts.getSuite());
         }
 
-        public void createDiamonds() {
+    /**
+     * Creates a Diamond suite
+     */
+    public void createDiamonds() {
             Suite diamonds = new DiamondsSuite("Diamonds", "♦");
             cardDeck.addAll(diamonds.getSuite());
         }
 
-        public void createClubs() {
+    /**
+     * Creates a club suite
+     */
+    public void createClubs() {
             Suite clubs = new ClubsSuite("Clubs", "♣");
             cardDeck.addAll(clubs.getSuite());
 
         }
 
-        public void createSpades() {
+    /**
+     * Create a spade suite
+     */
+    public void createSpades() {
             Suite spades = new SpadesSuite("Spades", "♠");
             cardDeck.addAll(spades.getSuite());
 
         }
 
-        public void completeDeck() {
+    /**
+     * Add all the suites together to create a deck of cards
+     */
+    public void completeDeck() {
             createHearts();
             createSpades();
             createClubs();

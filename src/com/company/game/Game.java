@@ -1,6 +1,5 @@
 package com.company.game;
 
-import com.company.deckOfCards.Card;
 import com.company.deckOfCards.Deck;
 
 import java.util.ArrayList;
@@ -9,37 +8,45 @@ import java.util.List;
 public class Game {
 
     private Boolean session = false;
-    private final List<Player> players;
+    private final List<Player> players = new ArrayList<>();
     Deck deck = new Deck();
 
-    public Game(List<Player> players) {
-        this.players = players;
-    }
-
+    /**
+     * Initial game setups
+     */
     public void gameSetUp(){
         deck.completeDeck();
         deck.shuffleDeck();
-        List.of(
+        players.addAll(List.of(
                 new Player(1L),
                 new Player(2L),
                 new Player(3L)
-        ).add((Player) players);
+        ));
+        dealCard();
     }
 
+    /**
+     * @return the list of players currently playing
+     */
     public List<Player> getPlayers() {
         return players;
     }
 
+    /**
+     * Loops through the list of players and set their hand with two cards to begin the game
+     */
     public void dealCard() {
-        /**
-         * Todo: Loops through the list of players and set their hand with two cards
-         */
+        players.forEach(p -> {
+            p.setHand(deck.getNextCard());
+            p.setHand(deck.getNextCard());
+        });
     }
 
+    /**
+     * Takes a player and adds a card to the hand of the player
+     */
     public void hit(Player player) {
-        /**
-         * Todo: Takes a player and adds a card to the hand of the player
-         */
+        player.setHand(deck.getNextCard());
     }
 
     public int stick() {
