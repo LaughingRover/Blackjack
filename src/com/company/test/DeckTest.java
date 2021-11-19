@@ -1,6 +1,6 @@
 package com.company.test;
 
-import com.company.Deck;
+import com.company.deckOfCards.Deck;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

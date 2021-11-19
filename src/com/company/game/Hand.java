@@ -1,4 +1,6 @@
-package com.company;
+package com.company.game;
+
+import com.company.deckOfCards.Card;
 
 import java.util.Vector;
 
@@ -15,6 +17,7 @@ public class Hand {
     }
 
     public int getValue() {
+        for(Card card : hand) value += card.getValue();
         return value;
     }
 }
