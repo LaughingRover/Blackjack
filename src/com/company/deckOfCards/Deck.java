@@ -8,9 +8,9 @@ public class Deck {
     private final Vector<Card> shuffledDeck = new Vector<>();
 
     /**
-     * @return a newly created card deck
+     * @return the unshuffled card deck
      */
-    public Vector<Card> getCardDeck() {
+    public Vector<Card> getOriginalDeck() {
         return cardDeck;
     }
 
@@ -43,6 +43,8 @@ public class Deck {
      * @return the size of the shuffled deck
      */
     public int getDeckSize() {
+        // Todo: Write test to make sure that deck size
+        //  reduces after cards are dealt from it
         return shuffledDeck.size();
     }
 

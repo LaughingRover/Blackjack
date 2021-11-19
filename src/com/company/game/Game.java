@@ -4,12 +4,29 @@ import com.company.deckOfCards.Deck;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Game {
 
     private Boolean session = false;
-    private final List<Player> players = new ArrayList<>();
+    private final ArrayList<Player> players = new ArrayList<>();
     Deck deck = new Deck();
+
+    public boolean getSession() {
+        return session;
+    }
+
+    public void setSession(Boolean session) {
+        this.session = session;
+    }
+
+    /**
+     * @return the list of players currently playing
+     */
+    public List<Player> getPlayers() {
+        return players;
+    }
+
 
     /**
      * Initial game setups
@@ -22,14 +39,8 @@ public class Game {
                 new Player(2L),
                 new Player(3L)
         ));
+        setSession(true);
         dealCard();
-    }
-
-    /**
-     * @return the list of players currently playing
-     */
-    public List<Player> getPlayers() {
-        return players;
     }
 
     /**
@@ -49,21 +60,24 @@ public class Game {
         player.setHand(deck.getNextCard());
     }
 
-    public int stick() {
-        /**
-         * Should I have a stick function?
-         */
-        return 0;
-    }
-
-    public void startNewGame() {
-        session = true;
-        gameSetUp();
-        while (session){
-
-            session = false;
+    /**
+     * More card should return true if the player wants a hit
+     * @return boolean
+     */
+    public void moreCards(Player player, String input) {
+        if (Objects.equals(input, "hit")) {
+            player.setHand(deck.getNextCard());
+            System.out.println(player + "\n");
         }
     }
 
+    public void endGame() {
+        setSession(false);
+        System.out.println("Game Over!");
+    }
 
+    @Override
+    public String toString() {
+        return "Jackpot players: " + players + "\n";
+    }
 }

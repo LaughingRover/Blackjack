@@ -20,7 +20,7 @@ class BlackJackTesting {
         Deck deck = new Deck();
         deck.completeDeck();
         int expected = 52;
-        int actual = deck.getCardDeck().size();
+        int actual = deck.getOriginalDeck().size();
 
         assertEquals(expected, actual);
     }
@@ -41,7 +41,7 @@ class BlackJackTesting {
         Deck deck = new Deck();
         deck.completeDeck();
         deck.shuffleDeck();
-        boolean actual = !(deck.getShuffledDeck().equals(deck.getCardDeck()));
+        boolean actual = !(deck.getShuffledDeck().equals(deck.getOriginalDeck()));
 
         assertTrue(actual);
     }
