@@ -2,24 +2,36 @@ package com.company.game;
 
 import com.company.deckOfCards.Card;
 
-public class Player {
-    private Hand hand;
-    private Dealer dealer;
+import java.util.Vector;
 
-    public Card getCard() {
-        return dealer.dealCard();
+public class Player {
+
+    private Long id;
+    private Vector<Card> hand = new Vector<>();
+    private int value = 0;
+
+    public Player(Long id) {
+        this.id = id;
     }
 
-    public void showHand() {
-        hand.showHand();
+
+    public void setHand(Card card) {
+        this.hand.add(card);
+    }
+
+    public Vector<Card> getHand() {
+        return hand;
     }
 
     public int getValueOfHand() {
-        return hand.getValue();
+        for(Card card : hand) value += card.getValue();
+        return value;
     }
 
     public Boolean moreCards() {
-       // Write moreCards implementation
+        /**
+         * Todo: Write moreCards implementation
+         */
         return false;
     }
 }

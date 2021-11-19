@@ -1,16 +1,10 @@
 package com.company;
 
-import com.company.deckOfCards.Deck;
+import com.company.game.Player;
 
 public class Main {
 
     public static void main(String[] args) {
-	    Deck deck = new Deck();
-        deck.completeDeck();
-        deck.shuffleDeck();
-        System.out.println(deck.getCardDeck());
-        System.out.println(deck.getNextCard());
-        System.out.println(deck.getCardDeck());
-//        System.out.println(deck.getShuffledDeck());
+
     }
 }
